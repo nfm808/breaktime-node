@@ -1,0 +1,26 @@
+{
+  "name": "breaktime-node",
+  "version": "1.0.0",
+  "description": "A utility to remind you to stop screening and do some moving.",
+  "main": "breaktime.js",
+  "scripts": {
+    "run": "node breaktime.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "notifier",
+    "productivity",
+    "reminder",
+    "break timer",
+    "timer",
+    "breaks"
+  ],
+  "author": "Nathan Fowler",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "figlet": "^1.2.3",
+    "inquirer": "^6.5.0",
+    "open": "^6.4.0"
+  }
+}
