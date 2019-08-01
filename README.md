@@ -8,7 +8,7 @@ Clone and then move to the directory
 
 Install dependencies with:  ```npm i```
 
-Replace or add the images or gifs of your choice into the assets folder.
+Replace or add the images, gifs, videos, or audio of your choice into the assets folder.
 
 * Supported formats are restricted to:
   * Images:
