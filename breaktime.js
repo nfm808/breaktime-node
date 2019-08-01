@@ -40,20 +40,21 @@ inquirer
     }
   ])
   .then(answers => {
-    breakTime(answers.time);
+    breakTime(answers.time, 1);
   });
 }, 100);
 
 // creates a loop to randomly select one of the assets
 // in the assets directory to be displayed by whatever
 // os the user is using
-function breakTime(num) {
+function breakTime(num, interval) {
   const delay = 1000 * 60 * num;
+  
   setTimeout(() => {
     (async () => {
       await open(`./assets/${assets[Math.floor(Math.random() * assets.length)]}`, {wait: true});
-      console.log('app has closed');
-      breakTime(num);
+      console.log(`Break Interval: ${interval}`);
+      breakTime(num, interval + 1);
     })();
   }, delay);
 };
