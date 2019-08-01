@@ -9,6 +9,23 @@ Clone and then move to the directory
 Install dependencies with:  ```npm i```
 
 Replace or add the images or gifs of your choice into the assets folder. 
+Replace or add the images, gifs, videos, or audio of your choice into the assets folder.
+
+* Supported formats are restricted to:
+  * Images:
+    * .gif
+    * .jpg
+    * .jpeg
+    * .png
+  * Audio:
+    * .mp3
+	* .mp4
+	* .wma
+  * Video:
+    * .mpg
+	* .mpeg
+	* .avi
+	* .mp4
 
 To run the app:  ```node .```
 
