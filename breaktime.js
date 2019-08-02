@@ -10,37 +10,30 @@ function readAssets() {
   const assets = [];
   // reads the contents of the assets/ directory
   // and pushes the contents to the assets array
+  try {
   fs.readdirSync('assets/', {withFileTypes: true})
-    .filter(item => !item.isDirectory())
-    .map(item => assets.push(item.name.toString()));
-  filterMediaTypes(assets);
+    .filter(item => !item.isDirectory() && validateItem(item.name))
+    .map(item => assets.push(item.name.toString()))
+  }
+  catch(err) { return console.error(err.message)};
+  createBanner(assets);
 }
 
 // validates the media types in the assets
 // folder
-function filterMediaTypes(assets) {
+function validateItem(item) {
+  const fileExt = "." + item.split('.').pop()
   const validExt =  [
     '.gif', '.jpg', '.jpeg',
     '.png', '.mp3', '.mp4', 
     '.wma', '.mpg', '.mpeg', 
-    '.avi', '.mp4'
+    '.avi'
   ]
-  const validExtStr = new RegExp("(" + validExt.join("|") + ")" + "$");
-  let isValid =  false;
-  for (let i = 0; i < assets.length; i++) {
-    if (!validExtStr.test(i)) {
-      isValid = false;
-    }
-    else isValid = true;
-  }  
-  if(isValid) {
-    return console.log(`assets may only be one of: 
-    '.gif', '.jpg', '.jpeg',
-    '.png', '.mp3', '.mp4', 
-    '.wma', '.mpg', '.mpeg', 
-    '.avi', '.mp4'`)
-  };
-  createBanner(assets);
+  const isValid = validExt.includes(fileExt);
+  if (!isValid) {
+    fs.unlinkSync(`./assets/${item}`)
+  }
+  return true;
 }
 
 // creates the console title text
